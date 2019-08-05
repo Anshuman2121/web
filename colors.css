@@ -1,1 +1,25 @@
-Hello
+body{
+    background-color: rgb(31, 24, 24);
+}
+
+.square{
+    width: 30%;
+    background: crimson;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.66%;
+}
+
+#container{
+    margin: 0 auto;  //0 is up and down, and auto is left and right;
+    max-width: 600px; 
+    
+}
+
+h1{
+    color: whitesmoke;
+}
+
+span{
+    color: whitesmoke
+}
