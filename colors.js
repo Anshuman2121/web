@@ -1,9 +1,56 @@
-var colors = generateRandomColor(6);
+var numsquare = 6
+var colors = generateRandomColor(numsquare);
 var squares = document.querySelectorAll(".square");
 var pickedColor =  pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 colorDisplay.textContent = pickedColor;
-var message = document.querySelector("#message");
+var message = document.getElementById("message");
+var reset = document.getElementById("reset");
+var h1 = document.querySelector("h1");
+var easy = document.getElementById("easy");
+var hard = document.getElementById("hard");
+
+easy.addEventListener("click",function(){
+    easy.classList.add("selected");
+    hard.classList.remove("selected");
+    numsquare = 3;
+    colors = generateRandomColor(numsquare);
+    pickedColor =  pickColor();
+    colorDisplay.textContent = pickedColor;
+    for (let i = 0; i < squares.length; i++) {
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i];  
+        }
+        else{
+            squares[i].style.display = "none";   //Important
+        }
+        
+    }
+});
+
+hard.addEventListener("click",function(){
+    hard.classList.add("selected")
+    easy.classList.remove("selected")
+    numsquare = 6;
+    colors = generateRandomColor(numsquare);
+    pickedColor =  pickColor();
+    colorDisplay.textContent = pickedColor;
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];  
+        squares[i].style.display = "block";   //Important
+             
+    }
+});
+
+reset.addEventListener("click",function(){
+    colors = generateRandomColor(numsquare);
+    pickedColor =  pickColor();
+    colorDisplay.textContent = pickedColor;
+    for (let index = 0; index < squares.length; index++) {
+        squares[index].style.backgroundColor = colors[index];}
+    h1.style.backgroundColor="steelblue";
+    reset.textContent = "New Game"
+});
 
 for (let index = 0; index < squares.length; index++) {
     squares[index].style.backgroundColor = colors[index];
@@ -15,7 +62,9 @@ for (let index = 0; index < squares.length; index++) {
         console.log( clickedColor, pickedColor);
         if (clickedColor === pickedColor){
             message.textContent = "correct";
+            reset.textContent = "Play Again?"
             changeColor(pickedColor);
+            h1.style.backgroundColor=pickedColor;
         }
         else{
             this.style.backgroundColor = "rgb(31, 24, 24)";
@@ -31,7 +80,7 @@ function changeColor(color){
 }
 
 function pickColor(){
-    var random = Math.floor(Math.random() * colors.length + 2);
+    var random = Math.floor(Math.random() * colors.length);
     return colors[random];    //important
 }
 

@@ -1,5 +1,7 @@
 body{
     background-color: rgb(31, 24, 24);
+    margin: 0;
+    font-family: "Avenir";
 }
 
 .square{
@@ -8,6 +10,8 @@ body{
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
+    border-radius: 5%;
+    transition: background 0.5s;
 }
 
 #container{
@@ -17,9 +21,54 @@ body{
 }
 
 h1{
+    text-align: center;
+    background: steelblue;
     color: whitesmoke;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 20px 0;
 }
 
 span{
-    color: whitesmoke
+    color: whitesmoke;
+}
+
+#stripe{
+    background: whitesmoke;
+    height: 30px;
+    text-align: center;    
+}
+
+#message{
+    color: black;
+    display: inline-block;
+    width: 20%;
+       
+}
+
+.selected{
+    background: blue;
+}
+
+#colorDisplay{
+    font-size: 200%;
+}
+
+button{
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all 0.5s;
+}
+
+button:hover{
+    color: white;
+    background: steelblue;
 }
